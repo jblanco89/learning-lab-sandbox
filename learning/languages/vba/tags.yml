@@ -1,0 +1,22 @@
+language:
+  - vba
+
+domain:
+  - algorithms
+  - data-structures
+  - spreadsheet automation
+  - data-analytic
+  - dashboards
+
+techniques:
+  - brute-force
+  - procedural-programming
+  - data-tables
+
+difficulty: 
+ - medium
+
+status: 
+- majoring process
+
+

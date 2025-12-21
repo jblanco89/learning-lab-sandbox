@@ -1,0 +1,18 @@
+language:
+  - scala
+
+domain:
+  - algorithms
+  - data-structures
+
+techniques:
+  - dynamic-programming
+  - recursion
+
+difficulty: 
+ - medium
+
+status: 
+- Learning process
+
+

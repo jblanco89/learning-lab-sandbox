@@ -1,11 +1,11 @@
 Attribute VB_Name = "UnionFindModule"
 ' Global variables declaration
-Private id() As Integer
-Private sz() As Integer
-Private numComponents As Integer
+Public id() As Integer
+Public sz() As Integer
+Public numComponents As Integer
 
 
-Sub initUnionFind(n As Integer)
+Sub initUnionFind(n As Long)
 ' Initializes total components is going to be processed by UnionFind subroutine
     Dim i As Integer
 
@@ -28,23 +28,32 @@ Function find(p As Integer) As Integer
 ' https://activities.tjhsst.edu/sct/lectures/1516/SCT_DSU.pdf
 ' https://github.com/williamfiset/Algorithms/blob/master/src/main/java/com/williamfiset/algorithms/datastructures/unionfind/UnionFind.java
     Dim root As Integer
+    Dim current As Integer
+    Dim nxt As Integer
+    
+    ' Verificación de seguridad
+    If p < LBound(id) Or p > UBound(id) Then
+        Debug.Print "ERROR en find(): p=" & p & " fuera de rango"
+        find = p
+        Exit Function
+    End If
+    
     root = p
     
-    ' Find root
+    ' Find root (sin modificar nada todavía)
     Do While root <> id(root)
         root = id(root)
     Loop
     
-    ' Path compression. It makes all vertex point out the root
-    Do While p <> root
-        Dim nxt As Long
-        nxt = id(p)
-        id(p) = root
-        p = nxt
+    ' Path compression (usando variable temporal)
+    current = p
+    Do While current <> root
+        nxt = id(current)
+        id(current) = root
+        current = nxt
     Loop
     
     find = root
-
 End Function
 
 Function connected(p As Integer, q As Integer) As Boolean
@@ -54,24 +63,4 @@ End Function
 
 
 
-Sub union(p As Integer, q As Integer)
-'  Merges the components containing p and q
-    Dim pRoot As Integer, qRoot As Integer
-    
-    If connected(p, q) Then
-        Exit Sub
-    End If
-    
-    pRoot = find(p)
-    qRoot = find(q)
-    
-    If sz(pRoot) < sz(qRoot) Then
-        sz(qRoot) = sz(qRoot) + sz(pRoot)
-        id(pRoot) = qRoot
-    Else
-        sz(pRoot) = sz(pRoot) + sz(qRoot)
-        id(qRoot) = pRoot
-    End If
-    numComponents = numComponents - 1
-End Sub
 

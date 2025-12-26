@@ -28,7 +28,7 @@ The implementation is found in `KruskalMod.bas` and is orchestrated by `solution
 ## Video Demonstration
 Below is an embedded gif demonstrating the Kruskal's algorithm in action on the provided graph data:
 
-[![Kruskal's Algorithm Visualization](Day8Visualization.gif)]
+[![Kruskal's Algorithm Visualization](./visual/Day8Visualization.gif)]
 
 ---
 

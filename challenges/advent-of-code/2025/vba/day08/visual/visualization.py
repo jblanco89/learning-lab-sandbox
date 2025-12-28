@@ -2,10 +2,10 @@ import pandas as pd
 import plotly.graph_objects as go
 import numpy as np
 
-#  csv files generated from day08/ExportCSVDay8Mod.bas
+#  csv files generated from day08/modules/ExportCSVDay8Mod.bas
 
-nodes = pd.read_csv("challenges/advent-of-code/2025/vba/nodes.csv")
-edges = pd.read_csv("challenges/advent-of-code/2025/vba/edges.csv")
+nodes = pd.read_csv("challenges/advent-of-code/2025/vba/day08/csv/nodes.csv")
+edges = pd.read_csv("challenges/advent-of-code/2025/vba/day08/csv/edges.csv")
 
 # --- CONFIG HARD-CODED ---
 STEP_SIZE = 5  # Frames will add this many edges each time to speed up the animation

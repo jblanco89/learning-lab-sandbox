@@ -13,13 +13,13 @@ Function execKruskal(nodesCount As Long, ByRef edgesList() As Edge) As Edge()
     ' 1. Union-Find initializaton
     initUnionFind nodesCount
     
-    ' 2. order list by weight (bubble sort)
+    ' 2. order list by weight (Quick sort)
     QuickSortEdges edgesList, LBound(edgesList), UBound(edgesList)
     
-    ReDim mst(0 To nodesCount - 2) ' Un MST siempre tiene N-1 aristas
+    ReDim mst(0 To nodesCount - 2) ' A MST has n-1 edges
     mstIndex = 0
     
-    ' 3. Union-Find Algorithm as Kruskal's engine
+    ' 3. Union-Find structure as a Kruskal's algorithm engine
     For i = LBound(edgesList) To UBound(edgesList)
         If Not connected(edgesList(i).u, edgesList(i).v) Then
             union edgesList(i).u, edgesList(i).v
@@ -32,10 +32,11 @@ Function execKruskal(nodesCount As Long, ByRef edgesList() As Edge) As Edge()
     execKruskal = mst
 End Function
 
-Sub sortEdges(ByRef arr() As Edge)
+Sub BubbleSortEdges(ByRef arr() As Edge)
+    ' Recommended for n < 50 edges, otherwise use quick sort
     Dim i As Long, j As Long
     Dim temp As Edge
-    ' Bubble Sort simple for now
+
     For i = LBound(arr) To UBound(arr) - 1
         For j = i + 1 To UBound(arr)
             If arr(i).w > arr(j).w Then
@@ -46,34 +47,35 @@ Sub sortEdges(ByRef arr() As Edge)
         Next j
     Next i
 End Sub
-Sub QuickSortEdges(ByRef arr() As Edge, ByVal primero As Long, ByVal ultimo As Long)
+Sub QuickSortEdges(ByRef arr() As Edge, ByVal first As Long, ByVal last As Long)
     Dim i As Long, j As Long
-    Dim pivote As Double
-    Dim temp As Edge
+    Dim pivot As Double
+    Dim tmp As Edge
     
-    i = primero
-    j = ultimo
-    ' Elegimos el peso (w) del elemento central como pivote
-    pivote = arr((primero + ultimo) \ 2).w
+    i = first
+    j = last
+    
+    ' Select central element based on its weight (w) as a pivot
+    pivot = arr((first + last) \ 2).w
     
     Do While i <= j
-        ' Buscamos elementos que deban cambiar de lado respecto al pivote
-        Do While arr(i).w < pivote: i = i + 1: Loop
-        Do While arr(j).w > pivote: j = j - 1: Loop
+        ' Looks for elements that must change of place respect to pivote
+        Do While arr(i).w < pivot: i = i + 1: Loop
+        Do While arr(j).w > pivot: j = j - 1: Loop
         
         If i <= j Then
-            ' Intercambio de estructuras Edge completas
-            temp = arr(i)
+            tmp = arr(i)
             arr(i) = arr(j)
-            arr(j) = temp
+            arr(j) = tmp
             i = i + 1
             j = j - 1
         End If
     Loop
     
-    ' Recursividad para las dos mitades restantes
-    If primero < j Then QuickSortEdges arr, primero, j
-    If i < ultimo Then QuickSortEdges arr, i, ultimo
+    ' Recursivity for the rest of halves
+    ' Note for me: "recursivity should be studied more in depth by me"
+    If first < j Then QuickSortEdges arr, first, j
+    If i < last Then QuickSortEdges arr, i, last
 End Sub
 
 Sub KruskalExample()
@@ -123,11 +125,9 @@ Function execKruskalLimited(nodesCount As Long, _
     For i = LBound(edgesList) To UBound(edgesList)
         If pairCount = maxPairs Then Exit For
 
-        ' ESTA ARISTA CUENTA SIEMPRE
         usedEdges(pairCount) = edgesList(i)
         pairCount = pairCount + 1
 
-        ' La unión solo ocurre si no están conectados
         If Not connected(edgesList(i).u, edgesList(i).v) Then
             union edgesList(i).u, edgesList(i).v
         End If
@@ -135,10 +135,6 @@ Function execKruskalLimited(nodesCount As Long, _
 
     execKruskalLimited = usedEdges
 End Function
-
-
-
-
 ' Aux fuction to create Edges quickly
 Function creatEdge(u As Long, v As Long, w As Double) As Edge
     creatEdge.u = u

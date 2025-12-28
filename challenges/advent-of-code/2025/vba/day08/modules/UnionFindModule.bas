@@ -31,21 +31,20 @@ Function find(p As Integer) As Integer
     Dim current As Integer
     Dim nxt As Integer
     
-    ' Verificación de seguridad
     If p < LBound(id) Or p > UBound(id) Then
-        Debug.Print "ERROR en find(): p=" & p & " fuera de rango"
+        Debug.Print "ERROR en find(): p=" & p & " out of range"
         find = p
         Exit Function
     End If
     
     root = p
     
-    ' Find root (sin modificar nada todavía)
+    ' Find node root
     Do While root <> id(root)
         root = id(root)
     Loop
     
-    ' Path compression (usando variable temporal)
+    ' Path compression
     current = p
     Do While current <> root
         nxt = id(current)

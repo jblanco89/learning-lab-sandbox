@@ -1,18 +1,18 @@
 #!/bin/bash
 
 WEEK=""
-PROBLEM="the Advent of Code 2025 Day 07 puzzle involving tachyon beam splitting"
-FOCUS="tracking and aggregating multiple beam paths and timelines through a grid"
-LANG="VBA"
-CONCEPT="Dictionary-based state aggregation for parallel paths"
-KEY_IDEA="mapping active grid positions to the number of beams or timelines reaching them"
-BENEFIT="handle exponential path splitting through accumulation instead of explicit simulation"
-ADV1="constant-time access and updates for active beam states"
-ADV2="natural aggregation of multiple paths converging at the same position"
-TRADEOFF="higher memory usage and reliance on COM-based Scripting.Dictionary"
-ALTERNATIVE="Collections or array-based simulations"
-RESULT="a scalable and readable solution for both beam counting and many-worlds timeline aggregation"
-REPO="https://github.com/tu_repo/aoc2025_day07"
+PROBLEM="Day 08 puzzle, which was about junction boxes for light connections"
+FOCUS="finding the minimum distance to connect all boxes so that all are reachable"
+LANG="VBA and python (this latter for visualization purposes)"
+CONCEPT="graph theory and minimum spanning trees (using Kruskal's algorithm)"
+KEY_IDEA="representing the junction boxes and their connections as a weighted undirected graph, besides setting union-find data structures with path compression"
+BENEFIT="efficiently determine the optimal connections needed to ensure all boxes are reachable with minimal total distance"
+ADV1="Handling of connection weights and dynamic graph updates"
+ADV2="How to set user-defined data structures in VBA to encapsulate graph components"
+TRADEOFF="the complexity of implementing graph algorithms in VBA"
+ALTERNATIVE="Using specialized libraries in other languages as Python or R"
+RESULT="a clear understanding of minimum spanning tree algorithms and their practical applications minimizing connection distances"
+REPO="https://github.com/jblanco89/learning-lab-sandbox/tree/main/challenges/advent-of-code/2025/vba/day08"
 
 
 
@@ -20,16 +20,16 @@ BASE="posts"
 
 mkdir -p "$BASE"
 
-cat <<EOF > "$BASE/post_test_1.md" # to be adapted for weekly use later
+cat <<EOF > "$BASE/post_test_2.md" # to be adapted for weekly use later
 
 
 🧠 Weekly Algorithm & Systems Notes — Week #$WEEK
 
-A couple of weeks ago I solved $PROBLEM, focusing on $FOCUS.
+The last AoC challenge I solved was $PROBLEM, focusing on $FOCUS.
 
 The solution was implemented using $LANG, with a strong emphasis on $CONCEPT.
 
-The key idea was to model the problem as $KEY_IDEA, which made it possible to $BENEFIT.
+The key idea was to model the problem $KEY_IDEA, which made it possible to $BENEFIT.
 
 From a technical standpoint, using this approach provided:
 - $ADV1

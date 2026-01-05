@@ -1,17 +1,17 @@
 #!/bin/bash
 
-WEEK=""
-PROBLEM="Day 08 puzzle, which was about junction boxes for light connections"
-FOCUS="finding the minimum distance to connect all boxes so that all are reachable"
-LANG="VBA and python (this latter for visualization purposes)"
-CONCEPT="graph theory and minimum spanning trees (using Kruskal's algorithm)"
-KEY_IDEA="representing the junction boxes and their connections as a weighted undirected graph, besides setting union-find data structures with path compression"
-BENEFIT="efficiently determine the optimal connections needed to ensure all boxes are reachable with minimal total distance"
-ADV1="Handling of connection weights and dynamic graph updates"
-ADV2="How to set user-defined data structures in VBA to encapsulate graph components"
-TRADEOFF="the complexity of implementing graph algorithms in VBA"
-ALTERNATIVE="Using specialized libraries in other languages as Python or R"
-RESULT="a clear understanding of minimum spanning tree algorithms and their practical applications minimizing connection distances"
+WEEK="01"
+PROBLEM="ways to measure level of concordance among 2 or more raters when we want to validate an assessment tool"
+FOCUS="metrics like Fleiss' Kappa for categorical data"
+LANG="VBA"
+CONCEPT="in handling multi-rater categorical data and implementing statistical calculations maybe taking advantage of Excel's built-in functions"
+KEY_IDEA="deeply understand the Fleiss' Kappa formula, its structure and properties"
+BENEFIT="to get adequate measures of inter-rater reliability for assessment validations"
+ADV1="automating the calculation of Fleiss' Kappa in Excel VBA for efficient data analysis"
+ADV2="comparing results with other metrics such as Kendall's W, to ensure consistency and reliability"
+TRADEOFF="Fleiss' Kappa may be affected by prevalence and bias issues in the data. it means that in datasets with imbalanced categories, the kappa value might not accurately reflect the true level of agreement among raters"
+ALTERNATIVE="other inter-rater reliability metrics like Krippendorff's Alpha, which can handle different data types and missing data more effectively"
+RESULT="a light VBA module implementation of Fleiss' Kappa"
 REPO="https://github.com/jblanco89/learning-lab-sandbox/tree/main/challenges/advent-of-code/2025/vba/day08"
 
 
@@ -20,26 +20,30 @@ BASE="posts"
 
 mkdir -p "$BASE"
 
-cat <<EOF > "$BASE/post_test_2.md" # to be adapted for weekly use later
+cat <<EOF > "$BASE/post_$WEEK.md"
 
 
 🧠 Weekly Algorithm & Systems Notes — Week #$WEEK
 
-The last AoC challenge I solved was $PROBLEM, focusing on $FOCUS.
+Sometimes, when we explore a research field, we need to consider $PROBLEM. In this case I focus on $FOCUS.
 
-The solution was implemented using $LANG, with a strong emphasis on $CONCEPT.
+The solution is going to be implemented using $LANG, with a strong emphasis on $CONCEPT.
 
-The key idea was to model the problem $KEY_IDEA, which made it possible to $BENEFIT.
+The key idea is to model a very common research problem by $KEY_IDEA, which made it possible to $BENEFIT.
 
 From a technical standpoint, using this approach provided:
 - $ADV1
 - $ADV2
 
-The main tradeoff to consider is $TRADEOFF, especially when compared to $ALTERNATIVE.
+According the theory, a tradeoff to consider is $TRADEOFF, especially when compared to $ALTERNATIVE.
 
-Overall, the solution resulted in $RESULT.
+Overall, the solution expected $RESULT.
 
-🔗 Code & resources:
+🔗 Resources:
 $REPO
+
+Abraira, V. (2000). "El índice kappa". SEMERGEN, volumen 27, páginas 247-249.
+
+Fleiss, J. L., Levin, B., & Paik, M. C. (2003). "The Measurement of Interrater Agreement". Statistical Methods for Rates and Proportions, chapter 18. Wiley-Interscience.
 
 EOF

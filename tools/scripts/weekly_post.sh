@@ -1,18 +1,18 @@
 #!/bin/bash
 
-WEEK="01"
-PROBLEM="ways to measure level of concordance among 2 or more raters when we want to validate an assessment tool"
-FOCUS="metrics like Fleiss' Kappa for categorical data"
-LANG="VBA"
-CONCEPT="in handling multi-rater categorical data and implementing statistical calculations maybe taking advantage of Excel's built-in functions"
-KEY_IDEA="deeply understand the Fleiss' Kappa formula, its structure and properties"
-BENEFIT="to get adequate measures of inter-rater reliability for assessment validations"
-ADV1="automating the calculation of Fleiss' Kappa in Excel VBA for efficient data analysis"
-ADV2="comparing results with other metrics such as Kendall's W, to ensure consistency and reliability"
-TRADEOFF="Fleiss' Kappa may be affected by prevalence and bias issues in the data. it means that in datasets with imbalanced categories, the kappa value might not accurately reflect the true level of agreement among raters"
+WEEK="03"
+PROBLEM="Fleiss' Kappa experimentation"
+FOCUS="implementation that simulates inter-rater reliability calculations"
+LANG="VBA - Excel"
+CONCEPT="evaluate kappa behavior with different subjects of data, raters but keeping the same categories"
+KEY_IDEA="deeply understand the Fleiss' Kappa formula, its structure and properties and how this improve as the simulation progresses"
+BENEFIT="increasing the number of raters and subjects in each iteration. Raters are spread randomly across categories, simulating real-world scenarios"
+ADV1="Fleiss' Kappa shows that as the number of raters and subjects increases, the concordance becomes more accurate".
+ADV2="Notice how the Z-score stabilizes, showing impressive statistical significance at a 95% confidence level"
+TRADEOFF="Kappa is used specifically for categorical values (nominal or ordinal). In contrast, other reliability metrics like Intraclass Correlation Coefficient (ICC) are better suited for continuous data."
 ALTERNATIVE="other inter-rater reliability metrics like Krippendorff's Alpha, which can handle different data types and missing data more effectively"
-RESULT="a light VBA module implementation of Fleiss' Kappa"
-REPO="https://github.com/jblanco89/learning-lab-sandbox/tree/main/challenges/advent-of-code/2025/vba/day08"
+RESULT="a didactic VBA module simulation of Fleiss' Kappa"
+REPO="https://github.com/jblanco89/learning-lab-sandbox/learning/languages/vba/numerical/fleiss_kappa"
 
 
 
@@ -25,17 +25,22 @@ cat <<EOF > "$BASE/post_$WEEK.md"
 
 🧠 Weekly Algorithm & Systems Notes — Week #$WEEK
 
-Sometimes, when we explore a research field, we need to consider $PROBLEM. In this case I focus on $FOCUS.
+Evaluating agreement among researchers using the same instrument can be biased if we ignore the influence of randomness. 
+Fortunately, statisticians developed methods to distinguish between decisions made by chance and those that were not.
 
-The solution is going to be implemented using $LANG, with a strong emphasis on $CONCEPT.
+Kappa metrics, such as Cohen's and Fleiss', allow us to evaluate concordance among two or more raters across several subjects without worrying about chance agreement. 
 
-The key idea is to model a very common research problem by $KEY_IDEA, which made it possible to $BENEFIT.
+Continuing with $PROBLEM. In this case I focus on $FOCUS.
+
+It was implemented using $LANG, with a strong emphasis on $CONCEPT.
+
+The key idea is to model a very common research problem by $KEY_IDEA, which made it possible by $BENEFIT.
 
 From a technical standpoint, using this approach provided:
 - $ADV1
 - $ADV2
 
-According the theory, a tradeoff to consider is $TRADEOFF, especially when compared to $ALTERNATIVE.
+According this simulation, a tradeoff to consider is $TRADEOFF, especially when compared to $ALTERNATIVE.
 
 Overall, the solution expected $RESULT.
 

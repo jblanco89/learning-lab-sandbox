@@ -1,4 +1,4 @@
-# Pseudocode for Fleiss' Kappa Calculation
+# Fleiss' Kappa Calculation
 
 ## Description
 Fleiss' Kappa evaluates the agreement between multiple raters when classifying items into nominal categories.
@@ -8,6 +8,10 @@ Fleiss' Kappa evaluates the agreement between multiple raters when classifying i
 - `n`: Number of raters per subject
 - `k`: Number of possible categories
 - `data_matrix`: N × k matrix with assignment frequencies per category for each subject
+
+## VBA Animation
+
+![Fleiss Kappa Animation](Kappa_fleiss.gif)
 
 ## Pseudocode
 
@@ -91,6 +95,10 @@ BEGIN
 END
 ```
 
+## Fleiss' Kappa Code
+
+![Fleiss Kappa Code](kappa_code.png)
+
 ## Input Example
 
 For 10 subjects evaluated by 3 raters across 5 categories:
@@ -123,3 +131,5 @@ data_matrix:
 - A value of 1 indicates perfect agreement
 - A value of 0 indicates agreement equal to that expected by chance
 - Negative values indicate agreement worse than chance
+
+
